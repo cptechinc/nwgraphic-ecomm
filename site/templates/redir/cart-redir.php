@@ -1,11 +1,11 @@
-<?php 
+<?php
 	if ($input->post->action) {
 		$action = $input->post->text('action');
 	} else {
 		$action = $input->get->text('action');
 	}
 
-	
+
 	switch ($action) {
 		case 'add-to-cart':
 			$itemid = $input->post->text('itemid');
@@ -15,8 +15,8 @@
 			} else  {
 				$qty = $input->post->text('qty');
 			}
-			$LO = "DBNAME=".$config->dbName."\nADDTOCART\nitemid=" . $itemid . "\nqty=" . $qty; 
-			
+			$LO = "DBNAME=".$config->dbName."\nADDTOCART\nitemid=" . $itemid . "\nqty=" . $qty;
+
 			$item = get_item_im($itemid, false);
 			$session->addtocart = 'You added ' . $qty . ' ' . $itemid . ' '. $item['name2'] . ' to the cart';
 			break;
@@ -24,7 +24,7 @@
 			$itemid = $input->post->text('itemid');
 			$session->loc =  $input->post->text('page') . "#"  . $input->post->text('ordn');
 			$LO = "DBNAME=".$config->dbName."\nADDTOCART\nitemid=" . $itemid . "\nqty=" . $input->post->text('qty');
-			$item = get_item_im($itemid, false); 
+			$item = get_item_im($itemid, false);
 			$session->addtocart = 'You added ' . $input->post->text('qty') . ' ' . $itemid . ' '. $item['name2'] . ' to the cart';
 			break;
 		case 'adjust':
@@ -40,6 +40,23 @@
 		case 'prebill':
 			$session->loc = $config->pages->billing;
 			$LO = "DBNAME=".$config->dbName."\nPREBILL";
+			break;
+		case 'promo':
+			// TODO: need a way to show error if promo code is not accepted
+			$promo = strtoupper($input->post->text('promo'));
+
+			update_login(session_id(), $promo);
+
+			$loginrecord = get_login_record(session_id());
+			$promocode = $loginrecord['promocode'];
+
+			if ($input->post->text('from-cart')) {
+				$session->loc = $config->pages->cart;
+			} else {
+				$session->addtocart = ' Your promo code of ' . $promocode . ' has been added';
+				$session->loc = $input->post->text('page');
+			}
+			$LO = "DBNAME=".$config->dbName."\nNWPROMO=" . $promocode;
 			break;
 	}
 
