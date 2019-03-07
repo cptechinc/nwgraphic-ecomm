@@ -285,6 +285,12 @@
 		return returnsqlquery($sql->queryString, $switching, $withquotes);
 	}
 
+	function update_login($session, $promocode) {
+		$sql = "UPDATE login SET promocode = '$promocode' WHERE sessionid = '$session'";
+		$results = wire('database')->query($sql);
+		return $sql;
+	}
+
  /* =============================================================
    BILLING FUNCTIONS
  ============================================================ */
@@ -317,7 +323,7 @@
 		$results = wire('database')->query($sql);
 		return $results->fetchAll(PDO::FETCH_ASSOC);
 	}
-	
+
 	function edit_billing($sessionid, $billing, $debug) {
 		$originalbilling = get_billing_information($sessionid);
 		$columns = array_keys($originalbilling);
@@ -340,7 +346,7 @@
 			return	returnsqlquery($sql->queryString, $switching, $withquotes);
 		} else {
 			if (sizeof($switching) > 1) {$sql->execute($switching); }
-			
+
 			return returnsqlquery($sql->queryString, $switching, $withquotes);
 		}
 	}
