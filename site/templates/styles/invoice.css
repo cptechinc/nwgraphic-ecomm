@@ -1,0 +1,13 @@
+.container.invoice {
+	font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace; 
+}
+
+.invoice .non-mono {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;	
+}
+
+@media print {
+	.no-print {
+		display: none;	
+	}
+}

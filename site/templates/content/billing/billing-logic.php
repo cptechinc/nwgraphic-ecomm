@@ -1,0 +1,1 @@
+<?php $billing = get_billing_information(session_id()); ?>
