@@ -11,10 +11,10 @@
 	</div>
 </form>
 <!-- TODO: fix error message with correct if statement  -->
-<?php if ($user->loggedin) : ?>
-	<div class="alert alert-danger alert-dismissible" role="alert">
+<?php if ($session->promo) : ?>
+	<div class="alert alert-success alert-dismissible" role="alert">
 	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	  <strong>Warning!</strong> Please enter a valid promo code
+	  <strong>Success!</strong> Promo code <?= $session->promo; ?> successfully added
 	</div>
 <?php else : ?>
 	<br>

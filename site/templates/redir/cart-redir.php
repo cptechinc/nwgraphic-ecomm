@@ -42,13 +42,13 @@
 			$LO = "DBNAME=".$config->dbName."\nPREBILL";
 			break;
 		case 'promo':
-			// TODO: need a way to show error if promo code is not accepted
 			$promo = strtoupper($input->post->text('promo'));
-
-			update_login(session_id(), $promo);
+			$LO = "DBNAME=".$config->dbName."\nNWPROMO=" . $promo;
 
 			$loginrecord = get_login_record(session_id());
 			$promocode = $loginrecord['promocode'];
+
+			$session->promo = $promocode;
 
 			if ($input->post->text('from-cart')) {
 				$session->loc = $config->pages->cart;
@@ -56,7 +56,6 @@
 				$session->addtocart = ' Your promo code of ' . $promocode . ' has been added';
 				$session->loc = $input->post->text('page');
 			}
-			$LO = "DBNAME=".$config->dbName."\nNWPROMO=" . $promocode;
 			break;
 	}
 
