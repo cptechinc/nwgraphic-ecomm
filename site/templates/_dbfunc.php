@@ -285,12 +285,6 @@
 		return returnsqlquery($sql->queryString, $switching, $withquotes);
 	}
 
-	function update_login($session, $promocode) {
-		$sql = "UPDATE login SET promocode = '$promocode' WHERE sessionid = '$session'";
-		$results = wire('database')->query($sql);
-		return $sql;
-	}
-
  /* =============================================================
    BILLING FUNCTIONS
  ============================================================ */
