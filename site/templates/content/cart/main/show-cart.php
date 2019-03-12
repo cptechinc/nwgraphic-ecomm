@@ -10,15 +10,6 @@
 		</div>
 	</div>
 </form>
-<!-- TODO: fix error message with correct if statement  -->
-<?php if ($session->promo) : ?>
-	<div class="alert alert-success alert-dismissible" role="alert">
-	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	  <strong>Success!</strong> Promo code <?= $session->promo; ?> successfully added
-	</div>
-<?php else : ?>
-	<br>
-<?php endif; ?>
 <div class="row form-group">
 	<div class="col-xs-12">
 		<a tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" title="Quick Order" data-placement="bottom" data-html="true" data-content='<?php include 'content/cart/quick-entry.php'; ?>'>Quick Order</a>

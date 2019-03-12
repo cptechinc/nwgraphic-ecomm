@@ -53,14 +53,6 @@
 									    </div>
 									</div>
 								</form>
-								<?php if ($session->promo) : ?>
-									<div class="alert alert-success alert-dismissible" role="alert">
-									  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									  <strong>Success!</strong> Promo code: <?= $session->promo; ?> successfully added
-									</div>
-								<?php else : ?>
-									<br>
-								<?php endif; ?>
                                	<div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
                                		<a href="<?php echo $config->pages->orders; ?>" class="btn btn-default">
                                			<i class="glyphicon glyphicon-th-list " aria-hidden="true"></i> View My Orders
@@ -87,14 +79,6 @@
 									    </div>
 									</div>
 								</form>
-								<?php if ($session->promo) : ?>
-									<div class="alert alert-success alert-dismissible" role="alert">
-									  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									  <strong>Success!</strong> Promo code: <?= $session->promo; ?> successfully added
-									</div>
-								<?php else : ?>
-									<br>
-								<?php endif; ?>
 	                     		<div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
                                		<a href="<?php echo $config->pages->orders; ?>" class="btn btn-default">
                                			<i class="glyphicon glyphicon-th-list " aria-hidden="true"></i> View My Orders
