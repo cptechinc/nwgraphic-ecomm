@@ -45,15 +45,11 @@
 			$promo = strtoupper($input->post->text('promo'));
 			$LO = "DBNAME=".$config->dbName."\nNWPROMO=" . $promo;
 
-			$loginrecord = get_login_record(session_id());
-			$promocode = $loginrecord['promocode'];
-
-			$session->promo = $promocode;
+			$session->promo = $promo;
 
 			if ($input->post->text('from-cart')) {
 				$session->loc = $config->pages->cart;
 			} else {
-				$session->addtocart = ' Your promo code of ' . $promocode . ' has been added';
 				$session->loc = $input->post->text('page');
 			}
 			break;

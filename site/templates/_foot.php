@@ -54,6 +54,7 @@
         <?php endforeach; ?>
 
         <?php include $config->paths->content."common/js-add-cart-msg.php"; ?>
+		<?php include $config->paths->content."common/js-promo-msg.php"; ?>
         <?php include $config->paths->content."common/js-set-equal-height.php"; ?>
         <?php if(isset($showsidebar)) {if ($showsidebar) { include $config->paths->content.'common/js-show-nav.php'; }} ?>
         <script>
