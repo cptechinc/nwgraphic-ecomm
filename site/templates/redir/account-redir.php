@@ -26,7 +26,6 @@
 			break;
 		case 'logout':
 			$LO = "DBNAME=".$config->dbName."\nLOGOUT";
-			$session->remove('promo');
 			$session->loc = $config->pages->loggedout;
 			break;
 		case "forgot-password":
