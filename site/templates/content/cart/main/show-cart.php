@@ -1,4 +1,6 @@
 <?php $product_link = $config->pages->products."redir/?action=itempage&id="; ?>
+<?php $loginrecord = get_login_record(session_id()); ?>
+<?php $promocode = $loginrecord['promocode']; ?>
 <form action="<?php echo $config->pages->cart."redir/?action=promo"; ?>" method="POST" >
 	<input type="hidden" name="from-cart" value="from-cart">
 	<div class="form-group">
@@ -9,12 +11,19 @@
 			</span>
 		</div>
 	</div>
+	<?php if ($promocode) : ?>
+		<div class="alert alert-success alert-dismissible col-sm-4" role="alert">
+	  		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  		Promo code <?= $promocode; ?> has been applied.
+		</div>
+	<?php else : ?>
+		<br>
+	<?php endif; ?>
 </form>
 <div class="row form-group">
 	<div class="col-xs-12">
 		<a tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" title="Quick Order" data-placement="bottom" data-html="true" data-content='<?php include 'content/cart/quick-entry.php'; ?>'>Quick Order</a>
 		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#item-lookup"><span class="glyphicon glyphicon-search"></span> Search</button>
-
 	</div>
 </div>
 <br>
