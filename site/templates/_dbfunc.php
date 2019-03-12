@@ -431,8 +431,9 @@
 		$results = wire('database')->query($sql);
 		return $results->fetchAll(PDO::FETCH_ASSOC);
 	}
+
 	function get_cart_subtotal($sessionid) {
-		$sql = wire('database')->prepare("SELECT SUM(price) FROM cart WHERE sessionid = :sessionid");
+		$sql = wire('database')->prepare("SELECT amount FROM cart WHERE sessionid = :sessionid");
 		$switching = array(':sessionid' => $sessionid); $withquotes = array(true);
 		$sql->execute($switching);
 		$subtotal = $sql->fetchColumn();
