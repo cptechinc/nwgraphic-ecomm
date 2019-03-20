@@ -32,16 +32,16 @@
                     </div>
                     <div class="col-xs-3 col-sm-6">
                     	<div class="pull-right visible-xs-inline-block">
-
-                    			<a href="<?php echo $config->pages->account; ?>" class="navbar-brand account-link visible-xs-inline-block">
-									<span class="h3"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-								</a>
-
-
+                			<a href="<?php echo $config->pages->account; ?>" class="navbar-brand account-link visible-xs-inline-block">
+								<span class="h3"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
+							</a>
                     	</div>
                     	<div class="login-navbar pull-right hidden-xs">
+							<?php $loginrecord = get_login_record(session_id()); ?>
+							<?php $promocode = $loginrecord['promocode']; ?>
                         	<?php if ($user->loggedin) : ?>
                            		<h3>Welcome, <?php echo $user->fullname; ?></h3>
+								Have a Promo Code?
 								<form action="<?php echo $config->pages->cart."redir/?action=promo"; ?>" method="POST" >
 									<input type="hidden" name="page" value="<?= $config->filename; ?>">
 									<div class="form-group">
@@ -53,6 +53,13 @@
 									    </div>
 									</div>
 								</form>
+								<?php if ($promocode) : ?>
+									<div class="alert alert-success" role="alert">
+										Promo code <strong><?= $promocode; ?></strong> has been applied.
+									</div>
+								<?php else : ?>
+									<br>
+								<?php endif; ?>
                                	<div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
                                		<a href="<?php echo $config->pages->orders; ?>" class="btn btn-default">
                                			<i class="glyphicon glyphicon-th-list " aria-hidden="true"></i> View My Orders
@@ -79,6 +86,13 @@
 									    </div>
 									</div>
 								</form>
+								<?php if ($promocode) : ?>
+									<div class="alert alert-success" role="alert">
+										Promo code <strong><?= $promocode; ?></strong> has been applied.
+									</div>
+								<?php else : ?>
+									<br>
+								<?php endif; ?>
 	                     		<div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
                                		<a href="<?php echo $config->pages->orders; ?>" class="btn btn-default">
                                			<i class="glyphicon glyphicon-th-list " aria-hidden="true"></i> View My Orders

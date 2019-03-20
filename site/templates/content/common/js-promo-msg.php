@@ -1,7 +1,8 @@
+<?php $loginrecord = get_login_record(session_id()); ?>
+<?php $promocode = $loginrecord['promocode']; ?>
 <?php if ($session->promo) : ?>
-	<?php $loginrecord = get_login_record(session_id()); ?>
 	<script>
-		<?php if ($loginrecord['ermes']) : ?>
+		<?php if (($loginrecord['ermes']) || ($promocode != $session->promo)) : ?>
 			$(function() {
 				$.notify({
 					icon: "glyphicon glyphicon-remove",

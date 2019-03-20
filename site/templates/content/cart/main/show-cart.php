@@ -12,9 +12,8 @@
 		</div>
 	</div>
 	<?php if ($promocode) : ?>
-		<div class="alert alert-success alert-dismissible col-sm-4" role="alert">
-	  		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	  		Promo code <?= $promocode; ?> has been applied.
+		<div class="alert alert-success col-sm-6" role="alert">
+			Promo code <strong><?= $promocode; ?></strong> has been applied.
 		</div>
 	<?php else : ?>
 		<br>

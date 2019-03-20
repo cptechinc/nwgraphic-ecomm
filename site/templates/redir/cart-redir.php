@@ -44,9 +44,7 @@
 		case 'promo':
 			$promo = strtoupper($input->post->text('promo'));
 			$LO = "DBNAME=".$config->dbName."\nNWPROMO=" . $promo;
-
 			$session->promo = $promo;
-
 			if ($input->post->text('from-cart')) {
 				$session->loc = $config->pages->cart;
 			} else {

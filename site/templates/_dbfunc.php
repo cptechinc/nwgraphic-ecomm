@@ -162,7 +162,7 @@
 
 	function isiteminim($itemid, $debug) {
 		$sql = wire('database')->prepare("SELECT COUNT(*) AS count FROM im WHERE itemid = :itemid");
- 		$switching = array(':itemid'=> $itemid); $withquotes = array(true);
+		$switching = array(':itemid'=> $itemid); $withquotes = array(true);
 		if ($debug) {
 			return returnsqlquery($sql->queryString, $switching, $withquotes);
 		} else {
@@ -414,7 +414,7 @@
    CART FUNCTIONS
  ============================================================ */
 
- 	function get_cart_count($session) {
+	function get_cart_count($session) {
 		$sql = "SELECT COUNT(*) FROM cart WHERE sessionid = '$session' AND itemid != ''";
 		$results = wire('database')->query($sql);
 		return $results->fetchColumn();
@@ -433,7 +433,7 @@
 	}
 
 	function get_cart_subtotal($sessionid) {
-		$sql = wire('database')->prepare("SELECT amount FROM cart WHERE sessionid = :sessionid");
+		$sql = wire('database')->prepare("SELECT amount FROM cart WHERE sessionid = :sessionid AND desc1 = 'ITEM SUBTOTAL'");
 		$switching = array(':sessionid' => $sessionid); $withquotes = array(true);
 		$sql->execute($switching);
 		$subtotal = $sql->fetchColumn();
@@ -524,7 +524,7 @@
 /* =============================================================
    ORDERS FUNCTIONS
  ============================================================ */
- 	function get_number_of_orders($session, $debug) {
+	function get_number_of_orders($session, $debug) {
 		$sql = wire('database')->prepare("SELECT COUNT(*) FROM ordrhed WHERE sessionid = :session AND type = 'O'");
 		$switching = array(':session' => $session); $withquotes = array(true);
 		if ($debug) {
@@ -614,7 +614,7 @@
 		}
 	}
 
- 	function get_custID($session) {
+	function get_custID($session) {
 		$sql = wire('database')->prepare("SELECT custid FROM login WHERE sessionid = :session");
 		$switching = array(':session' => $session); $withquotes = array(true);
 		$sql->execute($switching);
@@ -752,7 +752,7 @@
 /* =============================================================
    USEFUL MYSQL FUNCTIONS
  ============================================================ */
- 	function hexstring($str) {
+	function hexstring($str) {
 		$hexedstring = '';
 		$query = wire('database')->prepare("SELECT HEX(:str) as hexed");
 		$query->bindParam(':str', $str);
