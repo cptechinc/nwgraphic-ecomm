@@ -16,8 +16,8 @@
 		$priceprice3 = $item["priceprice3"];
 		$priceprice4 = $item["priceprice4"];
 		$priceprice5 = $item["priceprice5"];
-		$priceprice6 = $item["priceprice6"];$itemid = $item['itemid']; 
-	
+		$priceprice6 = $item["priceprice6"];$itemid = $item['itemid'];
+
 		?>
 		<div class="col-xs-12 product-result">
 			<div class="row">
@@ -38,7 +38,7 @@
 					<?php //include $config->paths->content.'product/show-product-features.php'; ?>
 				</div>
 				<div class="col-sm-3">
-					<?php if ($item['price'] != "0.00") : ?>
+					<?php if ($item['price'] != '0.00') : ?>
 						<div class="product-price text-right">
 							<span><?php echo $item['unit']; ?></span><br>
 							$ <span><?php echo $item['price']; ?></span>
@@ -47,7 +47,7 @@
 							<?php include $config->paths->content."product/price-structure.php"; ?>
 						</div>
 					<?php else : ?>
-						<div class="product-price text-right">$ <span class="text-muted">Call for Price</span></div>
+						<div class="product-price text-right">$ <span class="">Call for Price</span></div>
 					<?php endif; ?>
 					<form action="<?php echo $config->pages->cart; ?>redir/" method="post">
 						<input type="hidden" name="action" value="add-to-cart">

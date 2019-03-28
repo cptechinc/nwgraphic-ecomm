@@ -2,8 +2,9 @@
 	include $config->paths->assets."classes/CategoryTree.php";
 	$page->loaded = true;
 	$familyID = $input->get->text('fam');
+
 	if (get_family_pricing_count(session_id(), $familyID) == 0) {
-		header("Location: ". $config->pages->products."redir/?action=showfamily&fam=$familyID");
+		//header("Location: ". $config->pages->products."redir/?action=showfamily&fam=$familyID");
 	}
 	include $config->paths->content.'family/page-loaded-logic.php';
 	$pagecategory = get_category_from_family($familyID);
