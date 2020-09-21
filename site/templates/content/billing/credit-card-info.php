@@ -4,19 +4,19 @@
 <div class="row credit hidden">
 	<div class="col-sm-5">
     	<div class="checkbox">
-        	<label> 
-            	<input type="checkbox" name="use-provided-card" id="use-provided-card" value="Y" checked>  
-                Use <?php echo $card_display; ?> (<?php echo $billing['expirdate']; ?>) card.  
+        	<label>
+            	<input type="checkbox" name="use-provided-card" id="use-provided-card" value="Y" checked>
+                Use <?php echo $card_display; ?> (<?php echo $billing['expirdate']; ?>) card.
             </label>
-            <input type="hidden" name="provided-card" id="use-provided-card-value" value="<?php echo $billing['cc']; ?>"> 
-            <input type="hidden" name="provided-card-type"> 
+            <input type="hidden" name="provided-card" id="use-provided-card-value" value="<?php echo $billing['cc']; ?>">
+            <input type="hidden" name="provided-card-type">
             <img src="<?php echo $config->urls->files .'images/payment/'.$billing['paymenttype'].'.png'; ?>" id="p-visa-image" class="card2">
         </div>
     </div>
     <div class="col-sm-7">
         <div class="form-group">
             <label class="provided-card-image">&nbsp; </label>
-            <p> &nbsp;	
+            <p> &nbsp;
             </p>
         </div>
     </div>
@@ -52,8 +52,8 @@
 <div class="row credit hidden">
     <div class="col-sm-5 col-xs-7">
         <div class="form-group" id="exp-date">
-            <label for="cardExpiry" class="control-label" ><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE MM / YYYY</label>
-            <input type="tel" class="form-control" name="expdate" placeholder="MM / YYYY" autocomplete="cc-exp">
+            <label for="cardExpiry" class="control-label" ><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE MM / YY</label>
+            <input type="tel" class="form-control" name="expdate" placeholder="MM / YY" autocomplete="cc-exp">
         </div>
     </div>
     <div class="col-sm-3 col-xs-5 pull-right">

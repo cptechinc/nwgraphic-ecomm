@@ -22,7 +22,8 @@
 	$config->styles->append($config->urls->templates.'styles/bootstrap.min.css');
 	$config->styles->append('https://fonts.googleapis.com/icon?family=Material+Icons');
 	$config->styles->append($config->urls->templates.'styles/libs.css');
-	$config->styles->append($config->urls->templates.'styles/styles.css');
+	$config->styles->append(hash_templatefile('styles/styles.css'));
+
 
 	$config->scripts->append($config->urls->templates.'scripts/config.js');
 	$config->scripts->append($config->urls->templates.'scripts/bootstrap.min.js');
@@ -36,7 +37,7 @@
 		$user->email = get_email_from_login(session_id());
 		$user->custID = get_custid_from_login(session_id());
 		$user->custname = get_custname_from_login(session_id());
-	} elseif ($page->requirelogin == 1) { 
+	} elseif ($page->requirelogin == 1) {
 		header('location: ' . $config->pages->login);
 		exit;
 	}
@@ -61,5 +62,3 @@
 	}
 
 	$site = $pages->get('/config/');
-	
-	

@@ -1,4 +1,5 @@
 <?php $pagefamily = get_family($familyID, false); ?>
+<?php echo $config->img_location.$pagefamily['image']; ?>
 <?php
 	$speca = $pagefamily['speca']; $specb = $pagefamily['specb']; $specc = $pagefamily['specc']; $specd = $pagefamily['specd'];
 	$spece = $pagefamily['spece']; $specf = $pagefamily['specf']; $specg = $pagefamily['specg']; $spech = $pagefamily['spech'];
@@ -33,13 +34,13 @@
 					<div id="desc-div" class="collapse" aria-expanded="true">
 						<div>
 							<div class="panel-body">
-								<?php echo ($pagefamily['longdesc']); ?> 
+								<?php echo ($pagefamily['longdesc']); ?>
 							</div>
 						</div>
 					</div>
 				</div>
         	</div>
-        	
+
         </div>
     </div>
 </div>

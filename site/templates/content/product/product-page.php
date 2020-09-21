@@ -87,7 +87,7 @@
             </div>
             <hr>
             <?php if ($item['price'] != "0.00") : ?>
-            	<h4 class="product-price">Price: $ <span class="price"><?php echo $price . ' / ' .$uofm; ?></span></h4> <div class="product-stock">In Stock</div>
+            	<h4 class="product-price">Price: $ <span class="price"><?php echo $price . ' / ' .$uofm; ?></span></h4>
             <?php else : ?>
             	<h4 class="product-price">Price: $ <span class="price">Call for Price</span></h4>
             <?php endif; ?>

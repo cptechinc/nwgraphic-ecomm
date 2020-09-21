@@ -76,10 +76,9 @@
 </div>
 <div class="form-group">
 	<label class="control-label">Special Instructions</label>
-    <?php if (strlen($billing['note'] > 0)) : ?>
+    <?php if (strlen($billing['note']) > 0) : ?>
     	<p class="form-control-static"><?php echo $billing['note']; ?></p>
     <?php else : ?>
     	<p class="form-control-static">No Special Instructions were given</p>
     <?php endif; ?>
 </div>
-

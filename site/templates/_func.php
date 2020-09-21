@@ -3,9 +3,9 @@
 /**
  * Shared functions used by the beginner profile
  *
- * This file is included by the _init.php file, and is here just as an example. 
+ * This file is included by the _init.php file, and is here just as an example.
  * You could place these functions in the _init.php file if you prefer, but keeping
- * them in this separate file is a better practice. 
+ * them in this separate file is a better practice.
  *
  */
 
@@ -18,8 +18,8 @@
  * @param PageArray $items
  *
  */
- 
- 
+
+
 function renderNav(PageArray $items) {
 
 	if(!$items->count()) return;
@@ -87,7 +87,7 @@ function renderNavTree($items, $maxDepth = 3) {
 		echo "<a href='$item->url'>$item->title</a>";
 
 		// if the item has children and we're allowed to output tree navigation (maxDepth)
-		// then call this same function again for the item's children 
+		// then call this same function again for the item's children
 		if($item->hasChildren() && $maxDepth) {
 			renderNavTree($item->children, $maxDepth-1);
 		}
@@ -105,9 +105,9 @@ function renderNavTree($items, $maxDepth = 3) {
 function check_if_user_is_logged_in($session) {
 	$valid_login = get_login_status($session);
 	if ($valid_login == 'Y') {
-		return true;	
+		return true;
 	} else {
-		return false;	
+		return false;
 	}
 
 }
@@ -116,32 +116,32 @@ function check_if_user_is_logged_in($session) {
 /* =============================================================
    URL FUNCTIONS
  ============================================================ */
- 
+
  function return_querystring($url) {
 	 if (strpos($url, '?') !== false) {
-		 $url_arr = explode("?", $url); 
+		 $url_arr = explode("?", $url);
 		 return $url_arr[1];
 	 } else {
-		return ''; 
+		return '';
 	 }
  }
- 
+
 function paginate($url, $page, $insertafter, $hash) {
 	if (strpos($url, 'page') !== false) {
 		$regex = "((page)\d{1,3})";
 		$replace = "page".$page;
-		$newurl = preg_replace($regex, $replace, $url); 
+		$newurl = preg_replace($regex, $replace, $url);
 	} else {
 		$regex = "(($insertafter))";
 		$replace = $insertafter."/page".$page."";
 		$newurl = preg_replace($regex, $replace, $url);
 	}
-	 
+
 	return $newurl . $hash;
  }
- 
 
- 
+
+
  function replace_and_get_whole_url($initial_url, $replace_key_arr, $replace_value_arr) {
 	$counter = 0;
 	for ($i = 0; $i < sizeof($replace_key_arr); $i++) {
@@ -151,14 +151,14 @@ function paginate($url, $page, $insertafter, $hash) {
 			$url = replace_and_get_url($url, $replace_key_arr[$i], $replace_value_arr[$i]);
 		}
 	}
-	
+
 	return $url;
 }
 
 	function replace_and_get_url($url, $replace, $replace_value) {
 		$url = clean_url($url);
 		if (strpos($url, '&') !== false) {
-			$url_split = explode('&', $url, 2); 
+			$url_split = explode('&', $url, 2);
 			$parameter_string = $url_split[1]; $target_location = $url_split[0];
 			$parameter_array = explode('&', $parameter_string);
 			$replaced_parameters = return_non_empty_arr(replace_in_query_string($parameter_array, $replace, $replace_value));
@@ -166,38 +166,38 @@ function paginate($url, $page, $insertafter, $hash) {
 		} else {
 			$destination = $url;
 		}
-		
-		
+
+
 		return $destination;
 	}
 		function clean_url($url) {
 			$url = str_replace('?', '&', $url);
 			return $url;
 		}
-		
+
 		function return_non_empty_arr($array) {
 			$array_to_return = array();
 			foreach ($array as $element) {
 				if ($element != '') {
-					array_push($array_to_return, $element);							
+					array_push($array_to_return, $element);
 				}
 			}
 			return $array_to_return;
 		}
-		
+
 		function add_to_query_string($query_string, $value_name, $value) {
 			if ($value != 'delete-404') {
 				array_push($query_string, ($value_name .'='.$value));
 			}
 			return $query_string;
 		}
-		
+
 		function replace_in_query_string($query_string, $replace, $replace_value) {
 			$found = false;
 			for ($i = 0; $i < sizeof($query_string); $i++) {
 				if (strpos($query_string[$i], $replace) !== FALSE) {
 					$found = TRUE;
-					if ($replace_value == 'delete-404' || $replace_value == 'DELETE-ME') {					
+					if ($replace_value == 'delete-404' || $replace_value == 'DELETE-ME') {
 						$query_string[$i] = '';
 						} else {
 							$match = $query_string[$i];
@@ -205,35 +205,35 @@ function paginate($url, $page, $insertafter, $hash) {
 							$matchArr[1] = $replace_value;
 							$query_string[$i] = $matchArr[0] . '=' . $matchArr[1];
 						}
-				
+
 				}
 			}
-			
+
 			if ($found == FALSE) {
 				if ($replace_value == 'delete-404' || $replace_value == 'DELETE-ME') {
-					
+
 				} else {
 					array_push($query_string, ($replace . '='. $replace_value));
 				}
 			}
 			return $query_string;
 		}
-		
+
 		function build_me_url($query_string, $destination) {
 			$counter = 0;
 			$url_to_send = $destination;
 			foreach ($query_string as $queryitem) {
 				if ($counter == 0) {
-					$url_to_send .= '?' . $queryitem;	
+					$url_to_send .= '?' . $queryitem;
 				} else {
-					$url_to_send .= '&' . $queryitem;	
+					$url_to_send .= '&' . $queryitem;
 				}
 				$counter++;
 			}
 			return $url_to_send;
 		}
 
-function get_order_url($url, $order_by, $ordering_rule, $page_orderby) {		
+function get_order_url($url, $order_by, $ordering_rule, $page_orderby) {
 	$url = replace_and_get_url($url, 'orderby', $order_by, '');
 	if ($order_by != $page_orderby) {
 		$orderingRule = "ASC";
@@ -258,7 +258,7 @@ function get_order_url($url, $order_by, $ordering_rule, $page_orderby) {
 				$symbol = "&#x25BC;";
 				$symbol = "<span class='glyphicon glyphicon-arrow-down'></span>";
 			}
-		} 
+		}
 		return $symbol;
 	}
 
@@ -310,13 +310,13 @@ function get_order_url($url, $order_by, $ordering_rule, $page_orderby) {
 			if (in_array($needle, $container) !== false) {
 				return true;
 			} else {
-				return false;	
+				return false;
 			}
 		} else {
 			if (strpos($needle, $container) !== false) {
 				return true;
 			} else {
-				return false;	
+				return false;
 			}
 		}
 	}
@@ -324,15 +324,15 @@ function get_order_url($url, $order_by, $ordering_rule, $page_orderby) {
 
 	function show_requirements($field) {
 		if (doesitcontain(wire('config')->required_billing_fields, $field)) {
-			echo 'required';	
+			echo 'required';
 		}
 	}
 
 /*==============================================================
    MISC FUNCTIONS
 ==============================================================*/
- 
- 
+
+
  function latin_to_utf($string) {
 	$encode = array("â€¢" => '&bull;', "â„¢" => '&trade;', "â€" => '&prime;');
 	foreach ($encode as $key => $value) {
@@ -368,3 +368,27 @@ function get_order_url($url, $order_by, $ordering_rule, $page_orderby) {
  /*==============================================================
    USER FUNCTIONS
 ==============================================================*/
+
+/**
+	 * Returns URL with hash for JS / CSS Caches
+	 * @param  string $file     From templates\
+	 * @return string           URL with v?={filehash}
+	 */
+	function hash_templatefile($file) {
+		$basefile = remove_templatefilepath($file);
+		$filepath = get_templatefilepath($basefile);
+		$hash = get_filehash($filepath);
+		return wire('config')->urls->templates."$basefile?v=$hash";
+	}
+
+	function remove_templatefilepath($file) {
+		return str_replace(wire('config')->paths->templates, '', $file);
+	}
+
+	function get_templatefilepath($file) {
+		return wire('config')->paths->templates . $file;
+	}
+
+	function get_filehash($file) {
+		return hash_file(wire('config')->userAuthHashType, $file);
+	}

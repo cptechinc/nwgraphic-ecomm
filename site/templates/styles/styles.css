@@ -16,7 +16,7 @@
 	li a.active { font-weight: bold; }
 	.breadcrumb a {color: #0053a5; font-weight: bold;}
 	.process-step {background: #fff;}
-	
+
 	.welcome-callout {background: #f7f7f9; padding-top: 5px; padding-bottom: 5px;}
 
 	div.text-center .img-responsive {
@@ -125,8 +125,8 @@
 	.navbar-toggle .pull-left {margin-left: 15px;}
 	#header-logo {margin-top: -10px;}
 	.navbar-default .navbar-toggle {color: #FFF;}
-	
-	.account-link{position:relative;float:right;margin-right:15px;padding:9px 10px;} 
+
+	.account-link{position:relative;float:right;margin-right:15px;padding:9px 10px;}
 	.search-container { background: #333; padding-top: 15px; margin-bottom: 20px;}
 	@media (min-width: 768px) {
 		.navbar-condensed .navbar-nav>li>a {
@@ -134,7 +134,7 @@
 			padding-bottom: 10px;
 		}
 	}
-	
+
 /* =============================================================
    IMAGE STYLES
  ============================================================ */
@@ -209,3 +209,8 @@
 	.day { font-size: 300%; font-family: 'Windsor'; }
 	.month { font-size: 180%; }
 
+.alert-info a {color: white;}
+
+.img-fluid {
+	max-width: 100%;
+}
