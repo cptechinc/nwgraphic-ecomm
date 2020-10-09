@@ -20,7 +20,7 @@
                 <label class="control-label" for="email-conf">Confirm Email</label>
                 <input type="email" class="form-control required" id="email-conf" placeholder="Confirm email">
             </div>
-            <p class="help-block"> Enter and Confirm your password  </p>
+            <p class="help-block"> Don't use special characters, use only numbers and letters</p>
             <div class="form-group">
                 <label class="control-label" for="password">Password</label>
                 <input type="password" class="form-control required" id="password" name="password" placeholder="Password">

@@ -13,6 +13,7 @@
                 <input type="password" class="form-control required" id="current-password" name="current-password" placeholder="Password">
             </div>
             <p class="help-block">New password can not exceed 20 characters</p>
+			<p class="help-block"> Don't use special characters, use only numbers and letters</p>
             <div class="form-group">
                 <label class="control-label" for="city-input">New Password</label>
                 <input type="password" class="form-control required" name="new-password" id="new-password" placeholder="Password">

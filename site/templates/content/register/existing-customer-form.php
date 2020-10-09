@@ -11,34 +11,35 @@
 		<div class="col-sm-6">
         	<legend>For Assistance call <a href="<?php echo $config->phone800; ?>"><?php echo $config->phone800; ?></a> Ext. 250</legend>
             <div class="form-group">
-            	<label for="contact" class="control-label">Contact Name</label> <input type="text" class="form-control required" id="contact" name="contact"> 
+            	<label for="contact" class="control-label">Contact Name</label> <input type="text" class="form-control required" id="contact" name="contact">
             </div>
             <div class="form-group">
-            	<label for="email" class="control-label">Email Address</label> <input type="email" class="form-control required" id="email" name="email"> 
+            	<label for="email" class="control-label">Email Address</label> <input type="email" class="form-control required" id="email" name="email">
             </div>
+			<p class="help-block"> Don't use special characters, use only numbers and letters</p>
             <div class="form-group">
             	<label for="password" class="control-label">Choose a Password</label> <input type="text" class="form-control required" id="password" name="password">
             </div>
             <div class="form-group"><label for="confirm-password" class="control-label">Confirm Password</label> <input type="text" class="form-control required" id="confirm-password"> </div>
-            
+
             <legend>Security Questions for your account</legend>
             <div class="form-group">
-            	<label for="mmn" class="control-label">Mother's Maiden Name</label> <input type="text" class="form-control required" id="mmn" name="mmn"> 
+            	<label for="mmn" class="control-label">Mother's Maiden Name</label> <input type="text" class="form-control required" id="mmn" name="mmn">
             </div>
             <div class="form-group">
-            	<label for="born-in" class="control-label">City you were born in</label> <input type="text" class="form-control required" id="born-in" name="born-in"> 
+            	<label for="born-in" class="control-label">City you were born in</label> <input type="text" class="form-control required" id="born-in" name="born-in">
             </div>
         </div>
         <div class="col-sm-6">
         	<legend>Existing Customer Questions</legend>
-            <div class="form-group"> 
-            	<label for="acct-number" class="control-label">Account Number</label> <input type="text" class="form-control required" id="acct-number" name="acct-number"> 
+            <div class="form-group">
+            	<label for="acct-number" class="control-label">Account Number</label> <input type="text" class="form-control required" id="acct-number" name="acct-number">
             </div>
-            <div class="form-group"> 
-            	<label for="invoice1" class="control-label">Past Order Invoice #</label> <input type="text" class="form-control required" id="invoice1" name="invoice1"> 
+            <div class="form-group">
+            	<label for="invoice1" class="control-label">Past Order Invoice #</label> <input type="text" class="form-control required" id="invoice1" name="invoice1">
             </div>
-            <div class="form-group"> 
-            	<label for="invoice2" class="control-label">Past Order Invoice 2 #</label> <input type="text" class="form-control required" id="invoice2" name="invoice2"> 
+            <div class="form-group">
+            	<label for="invoice2" class="control-label">Past Order Invoice 2 #</label> <input type="text" class="form-control required" id="invoice2" name="invoice2">
             </div>
         </div>
 	</div>
@@ -79,7 +80,7 @@
 									});
 									if (validlogin == 'R') {
 										make_an_alert('#response', errormsg, '', 'danger');
-									} else { 
+									} else {
 									}
 								},
 								error: function() {
@@ -89,12 +90,12 @@
 						});
 					}
 				});
-			});	
+			});
 		} else {
 			document.getElementById('response-top').focus();
 		}
 	});
-	
+
 
 
 </script>

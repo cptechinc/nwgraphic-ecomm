@@ -3,8 +3,17 @@ $(function() {
         e.preventDefault();
 		var form = $(this).attr('id');
 		has_missing_inputs = check_for_missing_inputs(form);
+
+		var password_nospecial = validate_password_nospecial($('#npass').val());
+		if (!password_nospecial) {
+			$('#npass').parent().addClass('has-error');
+			message += '<br>'+'<b>Password has special characters.</b>';
+		}
+
 		if (has_missing_inputs) {
 			make_an_alert('.password-errors', 'There are fields with missing values', '', 'danger');
+		} else if (!password_nospecial) {
+			make_an_alert('.password-errors', 'Password has special characters', '', 'danger');
 		} else {
 			if ($('#cpass').val() != $('#npass').val()) {
 				$('#cpass').parent().addClass('has-error');
@@ -53,4 +62,9 @@ function get_password_error_messages() {
 			});
 		}
 	});
+}
+
+function validate_password_nospecial(password) {
+	var regex = /\W|_/g;
+	return regex.test(password) == false;
 }

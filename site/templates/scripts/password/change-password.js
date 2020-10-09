@@ -3,8 +3,22 @@ $(function() {
         e.preventDefault();
 		var form = $(this).attr('id');
 		has_missing_inputs = check_for_missing_inputs(form);
-		if (has_missing_inputs) {
+		var message = '';
 
+		var password_nospecial = validate_password_nospecial($('#new-password').val());
+		if (!password_nospecial) {
+			$('#new-password').parent().addClass('has-error');
+			message += '<br>'+'<b>Password has special characters.</b>';
+		}
+		if (has_missing_inputs || !password_nospecial) {
+			swal({
+				title: "Error!",
+				text: '<b>Please check the following fields </b>: <br> ' + message,
+				type: "error", html: true,
+				confirmButtonText: "OK!",
+				allowOutsideClick: true,
+				confirmButtonColor: '#7F3F98'
+			});
 		} else {
 			if ($('#new-password').val() == $('#confirm').val()) {
 				postform('#change-password-form', function() {
@@ -18,17 +32,11 @@ $(function() {
 			} else {
 				$('#new-password').parent().addClass('has-error');
 				$('#confirm').parent().addClass('has-error');
-				console.log($('#new-password').val());
-				console.log($('#confirm').val());
-
 				err_msg = 'The new passwords do not match';
 				$('<div id="password-errors"></div>').prependTo('#change-password-form');
 				make_an_alert('#password-errors', err_msg, '', 'danger');
 			}
-
-
 		}
-
     });
 });
 
@@ -63,7 +71,10 @@ function get_password_error_messages() {
 				$('#response').removeClass('hidden').addClass('animated bounceIn');
 			});
 		}
-
 	});
+}
 
+function validate_password_nospecial(password) {
+	var regex = /\W|_/g;
+	return regex.test(password) == false;
 }

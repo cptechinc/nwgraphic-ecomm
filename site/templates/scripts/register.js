@@ -29,7 +29,15 @@ $('#register-form').submit(function(e) {
 	if (!passwordmatch) {
 		message += '<br>'+'<b>Passwords do not match.</b>';
 	}
-	if (missing_inputs || !emailmatch) {
+
+	var password_nospecial = validate_password_nospecial($('#password').val());
+	if (!password_nospecial) {
+		$('#password').parent().addClass('has-error');
+		message += '<br>'+'<b>Password has special characters.</b>';
+	}
+
+
+	if (missing_inputs || !emailmatch || !password_nospecial) {
 		swal({
 			title: "Error!",
 			text: '<b>Please check the following fields </b>: <br> ' + message,
@@ -41,24 +49,28 @@ $('#register-form').submit(function(e) {
 	} else {
 		postform(form, function() {
 			var request = $.getJSON(config.urls.json.login_record, function( json ) {
-					if (json.response.validlogin == 'N') {
-						swal({
-							title: "Error!",
-							text: json.response.ermes,
-							type: "error", html: true,
-							confirmButtonText: "OK!",
-							allowOutsideClick: true,
-						});
-					} else {
-						make_an_alert('#response', 'Your registration has been submitted, an email will be sent to you shortly!', 'Success!', 'success');
-						$('#response').removeClass('hidden');
-						$('#register-form').addClass('animated bounceOut');
-					}
-				})
+				if (json.response.validlogin == 'N') {
+					swal({
+						title: "Error!",
+						text: json.response.ermes,
+						type: "error", html: true,
+						confirmButtonText: "OK!",
+						allowOutsideClick: true,
+					});
+				} else {
+					make_an_alert('#response', 'Your registration has been submitted, an email will be sent to you shortly!', 'Success!', 'success');
+					$('#response').removeClass('hidden');
+					$('#register-form').addClass('animated bounceOut');
+				}
+			});
 		});
 	}
 });
 
+function validate_password_nospecial(password) {
+	var regex = /\W|_/g;
+	return regex.test(password) == false;
+}
 
 function get_missing_input_names(form) {
 	var msg = '';
