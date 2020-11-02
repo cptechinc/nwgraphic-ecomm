@@ -29,12 +29,6 @@
 						<img src="<?php echo $page->filesManager->url.$page->storehoursbanner; ?>" alt="Seasonal Hours " class="img-responsive">
 					</div>
 				<?php endif; ?>
-
-
-				<div class="text-center">
-					<img src="/img/assorted/store-hours.png" alt="">
-				</div>
-
 			</div>
 		</div>
 	</div>
