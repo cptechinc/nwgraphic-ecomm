@@ -1,5 +1,4 @@
 <?php $pagefamily = get_family($familyID, false); ?>
-<?php echo $config->img_location.$pagefamily['image']; ?>
 <?php
 	$speca = $pagefamily['speca']; $specb = $pagefamily['specb']; $specc = $pagefamily['specc']; $specd = $pagefamily['specd'];
 	$spece = $pagefamily['spece']; $specf = $pagefamily['specf']; $specg = $pagefamily['specg']; $spech = $pagefamily['spech'];
@@ -34,7 +33,11 @@
 					<div id="desc-div" class="collapse" aria-expanded="true">
 						<div>
 							<div class="panel-body">
-								<?php echo ($pagefamily['longdesc']); ?>
+								<?php if ($pagefamily['longdesc'] == '<iframe src=info/whichtape.php width=600px height=340px scrolling=no frameborder=0></iframe>') : ?>
+									<?= $pages->get('template=template-topicitem,name=which-tape-is-right-for-me')->body; ?>
+								<?php else : ?>
+									<?php echo $pagefamily['longdesc']; ?>
+								<?php endif; ?>
 							</div>
 						</div>
 					</div>

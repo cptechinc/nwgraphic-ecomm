@@ -7,9 +7,9 @@
 <?php $config->scripts->append($config->urls->templates.'scripts/billing/jquery.validate.min.js'); ?>
 <?php $config->scripts->append($config->urls->templates.'scripts/billing/jquery.payment.min.js'); ?>
 <?php $config->scripts->append($config->urls->templates.'scripts/billing/validate-card.js'); ?>
-<?php $config->scripts->append($config->urls->templates.'scripts/billing/billing.js'); ?>
+<?php $config->scripts->append(hash_templatefile('scripts/billing/billing.js')); ?>
 
-<?php if ($billing['paymenttype'] != 'bill' && $billing['paymenttype'] != '') : ?> 
+<?php if ($billing['paymenttype'] != 'bill' && $billing['paymenttype'] != '') : ?>
 	<script>
 		$(function() { $('select[name="payment-method"]').val('<?php echo strtolower('cc'); ?>').change(); });
     </script>

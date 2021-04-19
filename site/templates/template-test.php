@@ -14,19 +14,5 @@
 
 
 	?>
-	<br>
-	<?php echo $session->original; ?>
-	<br>
-	<?php
-		$session->original;
-		$expiration = str_replace(' ', '', $session->original);
-		$expiration_array = explode("/", $expiration);
-		$month = $expiration_array[0];
-		$year = $expiration_array[1];
-		if (strlen($year) == 2) {
-			$expiration = "$month/20$year";
-		}
-		echo $expiration;
-	?>
-	</div><!-- end content -->
+</div>
 <?php include("./_foot.php"); ?>

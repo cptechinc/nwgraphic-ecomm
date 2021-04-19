@@ -2,7 +2,7 @@
 <?php if ($user->loggedin) : ?>
     <div class="form-group">
         <label class="control-label">Ship-To</label>
-        <select class="form-control required" name="shipto-id" onChange="get_shipto_info(this.value)">
+        <select class="form-control required" name="shipto-id" id="shiptoid" onChange="get_shipto_info(this.value)">
             <?php $shiptos = get_shiptos(session_id()); ?>
             <?php foreach ($shiptos as $shipto) : ?>
                 <option value="<?php echo $shipto['shiptoid']; ?>">
@@ -13,24 +13,24 @@
     </div>
 <?php endif; ?>
 <div class="form-group">
-	<label class="control-label">Ship-To Contact</label>
-    <input type="text" class="form-control required" name="shipto-contact" value="<?php echo $billing['sname']; ?>">
+	<label class="control-label">Ship-To Contact <span class="text-danger">*</span></label>
+    <input type="text" class="form-control required" name="shipto-contact" id="shiptocontact" value="<?php echo $billing['sname']; ?>">
 </div>
 <div class="form-group">
-  	<label class="control-label">Ship-To Name</label>
-    <input type="text" class="form-control required" name="shipto-name" value="<?php echo $billing['sconame']; ?>">
+  	<label class="control-label">Ship-To Name <span class="text-danger">*</span></label>
+    <input type="text" class="form-control required" name="shipto-name" id="shiptoname" value="<?php echo $billing['sconame']; ?>">
 </div>
 <div class="form-group">
-  	<label class="control-label">Address</label>
-    <input type="text" class="form-control required"  name="shipto-address" value="<?php echo $billing['saddress']; ?>">
+  	<label class="control-label">Address <span class="text-danger">*</span></label>
+    <input type="text" class="form-control required"  name="shipto-address" id="shiptoaddress" value="<?php echo $billing['saddress']; ?>">
 </div>
 <div class="form-group">
   	<label class="control-label">Address 2</label>
-    <input type="text" class="form-control" name="shipto-address2" value="<?php echo $billing['saddress2']; ?>">
+    <input type="text" class="form-control" name="shipto-address2" id="shiptoaddress2" value="<?php echo $billing['saddress2']; ?>">
 </div>
 <div class="form-group">
-  <label class="control-label">Country</label>
-  <select name="shipto-country" class="form-control required" onChange="showhidestates(this.value, 'ship')">
+  <label class="control-label">Country <span class="text-danger">*</span></label>
+  <select name="shipto-country" class="form-control required" id="shiptocountry" onChange="showhidestates(this.value, 'ship')">
       <option value="n/a">Choose</option>
       <option value="USA">United States</option>
       <?php $countries = get_countries(); ?>
@@ -45,12 +45,12 @@
 </div>
 <div class="row">
     <div class="col-sm-6">
-      	<label class="control-label">City</label>
-        <input type="text" class="form-control required" name="shipto-city" value="<?php echo $billing['scity']; ?>">
+      	<label class="control-label">City <span class="text-danger">*</span></label>
+        <input type="text" class="form-control required" name="shipto-city" id="shiptocity" value="<?php echo $billing['scity']; ?>">
     </div>
     <div class="col-sm-3">
-      	<label class="control-label">State</label>
-        <select name="shipto-state" class="form-control required">
+      	<label class="control-label">State <span class="text-danger">*</span></label>
+        <select name="shipto-state" class="form-control required" id="shiptostate">
           <option value="">Choose </option>
         <option value="OU">Outside U.S / Canada </option>
           <optgroup label="USA" class="ship-USA">
@@ -78,8 +78,8 @@
     </div>
     <div class="col-sm-3">
    		<div class="form-group">
-      		<label class="control-label">Zip</label>
-            <input type="text" class="form-control required" name="shipto-zip" value="<?php echo $billing['szip']; ?>">
+      		<label class="control-label">Zip <span class="text-danger">*</span></label>
+            <input type="text" class="form-control required" id="shiptozip" name="shipto-zip" value="<?php echo $billing['szip']; ?>">
       	</div>
     </div>
 </div>

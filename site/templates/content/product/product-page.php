@@ -133,7 +133,13 @@
 						<?php for ($i = 1; $i < count($descArr); $i++) : ?>
 							<p><?php echo $descArr[$i]; ?></p>
 						<?php endfor; ?>
-						<p><?php echo $longDesc; ?></p>
+						<p>
+							<?php if ($longDesc == '<iframe src=info/whichtape.php width=600px height=340px scrolling=no frameborder=0></iframe>') : ?>
+								<?= $pages->get('template=template-topicitem,name=which-tape-is-right-for-me')->body; ?>
+							<?php else : ?>
+								<?php echo $longDesc; ?>
+							<?php endif; ?>
+						</p>
 					</section>
 				</div>
                 <div class="tab-pane fade" id="product-info">

@@ -8,7 +8,7 @@
             	<input type="checkbox" name="use-provided-card" id="use-provided-card" value="Y" checked>
                 Use <?php echo $card_display; ?> (<?php echo $billing['expirdate']; ?>) card.
             </label>
-            <input type="hidden" name="provided-card" id="use-provided-card-value" value="<?php echo $billing['cc']; ?>">
+            <input type="hidden" name="provided-card" id="providedcardnumber" id="use-provided-card-value" value="<?php echo $billing['cc']; ?>">
             <input type="hidden" name="provided-card-type">
             <img src="<?php echo $config->urls->files .'images/payment/'.$billing['paymenttype'].'.png'; ?>" id="p-visa-image" class="card2">
         </div>
@@ -31,9 +31,9 @@
 <div class="row credit hidden">
     <div class="col-sm-5">
         <div class="form-group" id="creditcard-num">
-            <label for="card-number" class="control-label">CARD NUMBER </label>
+            <label for="card-number" class="control-label">CARD NUMBER <span class="text-danger">*</span></label>
             <div class="input-group">
-                <input type="tel" class="form-control" name="cardnumber" autocomplete="cc-number" id="ccno" placeholder="Valid Card Number" autocomplete="cc-number" value="">
+                <input type="tel" class="form-control" name="cardnumber" id="cardnumber" autocomplete="cc-number" id="ccno" placeholder="Valid Card Number" autocomplete="cc-number" value="">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></span>
             </div>
             <input type="hidden" name="card-type" id="card-type" value="">
@@ -52,14 +52,14 @@
 <div class="row credit hidden">
     <div class="col-sm-5 col-xs-7">
         <div class="form-group" id="exp-date">
-            <label for="cardExpiry" class="control-label" ><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE MM / YY</label>
-            <input type="tel" class="form-control" name="expdate" placeholder="MM / YY" autocomplete="cc-exp">
+            <label for="cardExpiry" class="control-label" ><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE MM / YY <span class="text-danger">*</span></label>
+            <input type="tel" class="form-control" name="expdate" id="expdate" placeholder="MM / YY" autocomplete="cc-exp">
         </div>
     </div>
     <div class="col-sm-3 col-xs-5 pull-right">
         <div class="form-group">
-            <label for="cardCVC">CV CODE</label>
-            <input type="tel" class="form-control text-right" name="cvc" placeholder="CVC" autocomplete="cc-csc">
+            <label for="cardCVC">CV CODE <span class="text-danger">*</span></label>
+            <input type="tel" class="form-control text-right" name="cvc" id="cvc" placeholder="CVC" autocomplete="cc-csc">
         </div>
     </div>
 </div>

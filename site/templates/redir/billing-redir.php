@@ -21,7 +21,7 @@
 			//update_billing_order(session_id(), $phone, $email, $pon, $note, $shipvia, $shipcom);
 
 			$billing['bname'] = $input->post->text('bill-contact');
-			$billing['bconname'] = $input->post->text('bill-name');
+			$billing['bconame'] = $input->post->text('bill-name');
 			$billing['baddress'] = $input->post->text('bill-address');
 			$billing['baddress2'] = $input->post->text('bill-address2');
 			$billing['bcity'] = $input->post->text('bill-city');
@@ -29,9 +29,8 @@
 			$billing['bzip'] = $input->post->text('bill-zip');
 			$billing['bcountry'] = $input->post->text('bill-country');
 
-
 			$billing['sname'] = $input->post->text('shipto-contact');
-			$billing['sconname'] = $input->post->text('shipto-name');
+			$billing['sconame'] = $input->post->text('shipto-name');
 			$billing['saddress'] = $input->post->text('shipto-address');
 			$billing['saddress2'] = $input->post->text('shipto-address2');
 			$billing['scity'] = $input->post->text('shipto-city');
@@ -48,7 +47,7 @@
 			if ($input->post->text('payment-method') == 'bill') {
 				$billing['paymenttype'] = 'bill';
 			}
-			
+
 			if (strlen($input->post->text('ship-complete')) > 0) {
 				$billing['shipcom'] = $input->post->text('ship-complete');
 			} else {
@@ -64,6 +63,7 @@
 			$expiration = str_replace(' ', '', $input->post->text('expdate'));
 
 			if (strlen($ccno) > 0) { $paytype = $input->post->text('card-type'); }
+
 			if ($input->post->{'use-provided-card'}) {
 				if 	($input->post->text('use-provided-card') == 'Y') {
 					$creditcard = get_creditinfo(session_id());
@@ -71,7 +71,6 @@
 					$expiration = $creditcard['expirdate'];
 					$cardcvc  = $creditcard['cvv'];
 					$paytype = $creditcard['paymenttype'];
-
 				}
 			}
 
@@ -83,9 +82,7 @@
 				$expiration = "$month/20$year";
 			}
 
-
 			if (strlen($ccno) > 0) {
-
 				$session->sql .= "<br><br>" . update_credit_on_order(session_id(), $paytype, $ccno, $cardcvc, $expiration);
 			}
 
