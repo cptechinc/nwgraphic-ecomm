@@ -3,7 +3,7 @@
 	<div class="page-header"> <h1 class="blog-title"><?php echo $page->get('pagetitle|headline|title') ; ?></h1> </div>
     <?php $brands = $pages->get('/brands/'); ?>
     <div class="row">
-        <?php foreach ($brands->children() as $brand) : ?>
+        <?php foreach ($brands->children('sort=name') as $brand) : ?>
             <div class="col-sm-3 brand">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -11,7 +11,6 @@
                     </div>
                     <div class="panel-body text-center">
                         <div><img class="" src="<?php echo $brand->filesManager->url.$brand->images->first(); ?>" alt="<?php echo $brand->title." logo"; ?>"></div> <br>
-
                         <?php $files = array_filter(glob($config->sdspath.strtolower($brand->name)."/*"), 'is_file'); ?>
                         <?php if (sizeof($files) > 0 ) : ?>
                             <select name="" id="" class="form-control form-group load-datasheet">
