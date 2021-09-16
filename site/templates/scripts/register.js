@@ -48,21 +48,24 @@ $('#register-form').submit(function(e) {
 		});
 	} else {
 		postform(form, function() {
-			var request = $.getJSON(config.urls.json.login_record, function( json ) {
-				if (json.response.validlogin == 'N') {
-					swal({
-						title: "Error!",
-						text: json.response.ermes,
-						type: "error", html: true,
-						confirmButtonText: "OK!",
-						allowOutsideClick: true,
-					});
-				} else {
-					make_an_alert('#response', 'Your registration has been submitted, an email will be sent to you shortly!', 'Success!', 'success');
-					$('#response').removeClass('hidden');
-					$('#register-form').addClass('animated bounceOut');
-				}
-			});
+			setTimeout(() => {
+				var request = $.getJSON(config.urls.json.login_record, function( json ) {
+					if (json.response.validlogin == 'N') {
+						swal({
+							title: "Error!",
+							text: json.response.ermes,
+							type: "error", html: true,
+							confirmButtonText: "OK!",
+							allowOutsideClick: true,
+						});
+					} else {
+						make_an_alert('#response', 'Your registration has been submitted, an email will be sent to you shortly!', 'Success!', 'success');
+						$('#response').removeClass('hidden');
+						$('#register-form').addClass('animated bounceOut');
+					}
+				});
+			 }, 2000);
+
 		});
 	}
 });
