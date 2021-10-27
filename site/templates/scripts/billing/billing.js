@@ -72,7 +72,7 @@ $('input[name=cvc]').change(function() {
 			billcountry: {required: true},
 			billcity: {required: true},
 			billstate: {required: true},
-			billzip: {required: true},
+			billzip: {required: false},
 			shiptoid: {required: true},
 			shiptcontact: {required: true},
 			shiptoname: {required: true},
@@ -104,7 +104,7 @@ $('input[name=cvc]').change(function() {
 		},
 		submitHandler: function(form) {
 			var jform = $(form);
-			postform('#'+form.attr('id'), function() {
+			postform('#'+jform.attr('id'), function() {
 				wait(3000, function() {
 					has_error = get_header_form_errors(function() {
 						window.location.href = $('#page').val();
