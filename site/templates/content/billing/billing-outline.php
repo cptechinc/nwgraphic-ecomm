@@ -1,4 +1,9 @@
 <?php error_reporting( error_reporting() & ~E_NOTICE ); ?>
+<?php if ($user->loggedin === false) : ?>
+	<div class="alert alert-info" role="alert">
+		An account will be created for you when you complete this order.
+	</div>
+<?php endif; ?>
 <form id="billing-form" action="<?php echo $config->pages->billing."redir/"; ?>" method="post">
 	<input type="hidden" name="action" value="submit-billing-form">
 	<input type="hidden" name="page" id="page" value="<?php echo $config->pages->confirmation; ?>">
