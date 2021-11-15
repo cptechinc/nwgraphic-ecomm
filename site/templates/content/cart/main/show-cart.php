@@ -1,8 +1,13 @@
 <?php $product_link = $config->pages->products."redir/?action=itempage&id="; ?>
+<?php if ($user->loggedin === false) : ?>
+	<div class="alert alert-info" role="alert">
+		An account will be created for you if you create an order
+	</div>
+<?php endif; ?>
 <div class="row form-group">
     <div class="col-xs-12">
         <a tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" title="Quick Order" data-placement="bottom" data-html="true" data-content='<?php include 'content/cart/quick-entry.php'; ?>'>Quick Order</a>
-        <button type="button" class="btn btn-primary btn-lg " data-toggle="modal" data-target="#item-lookup"><span class="glyphicon glyphicon-search"></span> Search</button> 
+        <button type="button" class="btn btn-primary btn-lg " data-toggle="modal" data-target="#item-lookup"><span class="glyphicon glyphicon-search"></span> Search</button>
     </div>
 </div>
 <br>
@@ -25,7 +30,7 @@
 
 <div class="row">
 	<div class="col-xs-12">
-    	<div class="list-group"> 
+    	<div class="list-group">
         	<?php $cart_items = get_cart(session_id()); ?>
             <?php foreach ($cart_items as $item) : ?>
 				<?php if ($item['errormes'] == "Y") : ?>
@@ -61,4 +66,3 @@
     	<a href="<?php echo $config->pages->cart; ?>redir/?action=prebill" class="btn btn-success btn-block">Secure Checkout <span class="glyphicon glyphicon-ok"></span></a>
     </div>
 </div>
-
