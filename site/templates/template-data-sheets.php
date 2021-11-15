@@ -10,7 +10,10 @@
                         <span class="h4"><?php echo $brand->title; ?></span>
                     </div>
                     <div class="panel-body text-center">
-                        <div><img class="" src="<?php echo $brand->filesManager->url.$brand->images->first(); ?>" alt="<?php echo $brand->title." logo"; ?>"></div> <br>
+						<?php if ($brand->images) : ?>
+							<div><img class="" src="<?php echo $brand->filesManager->url.$brand->images->first(); ?>" alt="<?php echo $brand->title." logo"; ?>"></div> <br>
+						<?php endif; ?>
+
                         <?php $files = array_filter(glob($config->sdspath.strtolower($brand->name)."/*"), 'is_file'); ?>
                         <?php if (sizeof($files) > 0 ) : ?>
                             <select name="" id="" class="form-control form-group load-datasheet">
