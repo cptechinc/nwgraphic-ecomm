@@ -35,9 +35,12 @@
 							<p class="text-center"> <button type="submit" class="btn btn-success not-round">Sign in</button> </p>
 
 							<hr>
-							<div class="form-group">
-								<small>Don't have an account! <a href="<?php echo $config->pages->register; ?>"> Sign Up Here </a></small>
-							</div>
+							<?php if (100 == 1) : ?>
+								<div class="form-group">
+									<small>Don't have an account! <a href="<?php echo $config->pages->register; ?>"> Sign Up Here </a></small>
+								</div>
+							<?php endif; ?>
+
 						</form>
                 	</div>
                 </div>
