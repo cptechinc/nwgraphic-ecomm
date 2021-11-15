@@ -32,6 +32,7 @@
 
 
 	$user->loggedin = check_if_user_is_logged_in(session_id());
+	
 	if ($user->loggedin) {
 		$user->fullname = get_login_name(session_id());
 		$user->email = get_email_from_login(session_id());
