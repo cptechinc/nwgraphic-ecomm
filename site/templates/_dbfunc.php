@@ -109,6 +109,17 @@
 		return $sql->fetchColumn();
 	}
 
+	function has_tview($sessionID, $debug = false) {
+		$sql = wire('database')->prepare("SELECT COUNT(*) FROM tview WHERE sessionid = :sessionid AND itemid = '' ");
+		$switching = array(':sessionid' => $session); $withquotes = array(true);
+		if ($debug) {
+			return returnsqlquery($sql->queryString, $switching, $withquotes);
+		} else {
+			$sql->execute($switching);
+			return boolval($sql->fetchColumn());
+		}
+	}
+
 	function get_family_headings($session, $debug) {
 		$sql = wire('database')->prepare("SELECT * FROM tview WHERE sessionid = :sessionid AND itemid = '' ");
 		$switching = array(':sessionid' => $session); $withquotes = array(true);
@@ -317,7 +328,7 @@
 		$results = wire('database')->query($sql);
 		return $results->fetchAll(PDO::FETCH_ASSOC);
 	}
-	
+
 	function edit_billing($sessionid, $billing, $debug) {
 		$originalbilling = get_billing_information($sessionid);
 		$columns = array_keys($originalbilling);
@@ -340,7 +351,7 @@
 			return	returnsqlquery($sql->queryString, $switching, $withquotes);
 		} else {
 			if (sizeof($switching) > 1) {$sql->execute($switching); }
-			
+
 			return returnsqlquery($sql->queryString, $switching, $withquotes);
 		}
 	}

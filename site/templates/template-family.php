@@ -6,7 +6,11 @@
 	if (get_family_pricing_count(session_id(), $familyID) == 0) {
 		//header("Location: ". $config->pages->products."redir/?action=showfamily&fam=$familyID");
 	}
+
 	include $config->paths->content.'family/page-loaded-logic.php';
+	if ($page->loaded === false) {
+		// header("Location: ". $config->pages->products."redir/?action=showfamily&fam=$familyID");
+	}
 	$pagecategory = get_category_from_family($familyID);
 	$categorytree = new CategoryTree($pagecategory);
 	$tableview = has_tableview($familyID);

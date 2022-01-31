@@ -9,12 +9,12 @@
             	<?php $tt = 1; ?>
                 <?php $has_values = array(); ?>
                 <tr>
-                    <?php for ($i = 1; $i < 11; $i++) : ?> 
+                    <?php for ($i = 1; $i < 11; $i++) : ?>
                     	<?php if ($i > 0) : ?>
-							<?php if ($table_heading['c' . $i] != '') : ?> 
+							<?php if ($table_heading['c' . $i] != '') : ?>
                             	<?php $has_values[$i] = true; ?>
                                 <th><?php echo $table_heading['c' . $i]; ?></th>
-                                <?php $tt = $i; ?> 
+                                <?php $tt = $i; ?>
                             <?php else : ?>
                                 <?php $has_values[$i] = false; ?>
                             <?php endif; ?>
@@ -27,7 +27,7 @@
         	<?php $rows = get_tview_limit(session_id(), 25, $this_page, false); ?>
             <?php foreach ($rows as $row) : ?>
                 <tr>
-                    <?php for ($f = 1; $f < 11; $f++) : ?> 
+                    <?php for ($f = 1; $f < 11; $f++) : ?>
                     	<?php if ($f > 0) : ?>
 							<?php if ($has_values[$f]) : ?>
                                 <?php if ($f == 1) : ?>
@@ -51,7 +51,7 @@
         </tbody>
         <tfoot>
         	<tr>
-				<?php for ($i = 1; $i < 11; $i++) : ?> 
+				<?php for ($i = 1; $i < 11; $i++) : ?>
                     <?php if ($table_heading['c' . $i] != '') : ?> <th><?php echo $table_heading['c' . $i]; ?></th> <?php endif; ?>
                 <?php endfor; ?>
             </tr>
