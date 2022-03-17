@@ -80,7 +80,7 @@
 			$phone = $input->post->text('phone');
 
 
-			$session->sql = enter_new_login(session_id(), $email, $contact, $company, $addr, $addr2, $city, $state, $zip, $country, $phone, $mother, $cityborn, $password, true);
+			// $session->sql = enter_new_login(session_id(), $email, $contact, $company, $addr, $addr2, $city, $state, $zip, $country, $phone, $mother, $cityborn, $password, true);
 			$session->sql .= "<br>" . date('G:i');
 			$session->loc = $config->pages->index;
 			$LO = "DBNAME=".$config->dbName."\nNEWLOGIN\nemail=" . $email;
