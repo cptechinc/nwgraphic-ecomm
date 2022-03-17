@@ -9,7 +9,7 @@
 </div>
 <div class="form-group">
 	<label class="control-label">Purchase Order Number </label>
-    <input type="text" class="form-control " name="pon" id="ponbr" value="<?php echo $billing['pono']; ?>">
+    <input type="text" class="form-control" name="pon" id="ponbr" value="<?php echo $billing['pono']; ?>">
 </div>
 <div class="form-group">
 	<label class="control-label">Ship Method <span class="text-danger">*</span></label>
