@@ -11,7 +11,9 @@
                     </div>
                     <div class="panel-body text-center">
 						<?php if ($brand->images) : ?>
-							<div><img class="" src="<?php echo $brand->filesManager->url.$brand->images->first(); ?>" alt="<?php echo $brand->title." logo"; ?>"></div> <br>
+							<div>
+								<img class="" src="<?php echo $brand->filesManager->url.$brand->images->first(); ?>" alt="<?php echo $brand->title." logo"; ?>"  width="150" height="100">
+							</div> <br>
 						<?php endif; ?>
 
                         <?php $files = array_filter(glob($config->sdspath.strtolower($brand->name)."/*"), 'is_file'); ?>
