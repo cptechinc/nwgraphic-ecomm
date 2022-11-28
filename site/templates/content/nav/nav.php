@@ -19,13 +19,13 @@
             <?php if ($TESTING) : ?>
             	<a class="navbar-brand" href="<?php echo $config->pages->index; ?>">TESTING - DEBUG</a>
             <?php else : ?>
-				
+
             <?php endif; ?>
-            <a href="<?php echo $config->pages->cart; ?>" class="navbar-brand account-link visible-xs-inline-block"> 
+            <a href="<?php echo $config->pages->cart; ?>" class="navbar-brand account-link visible-xs-inline-block">
             	<span class="sr-only">Cart</span>
-				<span class="h3"><i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i> </span> 	
+				<span class="h3"><i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i> </span>
 			</a>
-			
+
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
@@ -35,7 +35,7 @@
                             <li class="active"><a href="<?php echo $item->url; ?>"><?php echo $item->title; ?></a></li>
                         <?php else : ?>
 							<?php if (strtolower($item->title) == "financing") : ?>
-								<li><a href="https://www.gogc.com/northwestgraphicsupply" target="_blank"><?php echo $item->title; ?></a></li>
+								<li><a href="https://www.cit.com/northwest-graphic-supply" target="_blank"><?php echo $item->title; ?></a></li>
 							<?php else : ?>
 								<li><a href="<?php echo $item->url; ?>"><?php echo $item->title; ?></a></li>
 							<?php endif; ?>
@@ -73,8 +73,8 @@
 							</ul>
 						</li>
 					<?php endif; ?>
-					
-				
+
+
 				</li>
 				<li><a href="<?php echo $config->pages->info; ?>">Info</a></li>
 				<li><a href="<?php echo $config->pages->sds; ?>">Safety Data Sheets</a></li>
@@ -84,7 +84,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li class="cart-li">
 					<a href="<?= $config->pages->cart; ?>">
-						<span class="glyphicon glyphicon-shopping-cart"></span> Cart : $ <?= get_cart_subtotal(session_id()); ?> 
+						<span class="glyphicon glyphicon-shopping-cart"></span> Cart : $ <?= get_cart_subtotal(session_id()); ?>
 					</a>
 				</li>
 			</ul>
