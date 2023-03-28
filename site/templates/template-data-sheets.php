@@ -12,7 +12,7 @@
                     <div class="panel-body text-center">
 						<?php if ($brand->images) : ?>
 							<div>
-								<img class="" src="<?php echo $brand->filesManager->url.$brand->images->first(); ?>" alt="<?php echo $brand->title." logo"; ?>"  width="150" height="100">
+								<img class="" src="<?php echo $brand->filesManager->url.$brand->images->first(); ?>" alt="<?php echo $brand->title." logo"; ?>" height="100">
 							</div> <br>
 						<?php endif; ?>
 
