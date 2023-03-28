@@ -308,7 +308,8 @@
 	function get_billing_information($session) {
 		$sql = "SELECT billing.*, cast(aes_decrypt(ccno, hex(sessionid)) as char charset utf8) as cc, cast(aes_decrypt(xpdate, hex(sessionid)) as char charset utf8) as expirdate, cast(aes_decrypt(vc, hex(sessionid)) as char charset utf8) as cvv FROM billing WHERE sessionid = '$session'";
 		$results = wire('database')->query($sql);
-		return $results->fetch(PDO::FETCH_ASSOC);
+		$billing = $results->fetch(PDO::FETCH_ASSOC);
+		return $billing;
 	}
 
 	function get_ordn($session) {
