@@ -4,7 +4,7 @@
 		An account will be created for you when you complete this order.
 	</div>
 <?php endif; ?>
-<form id="billing-form" action="<?php echo $config->pages->billing."redir/"; ?>" method="post">
+<form id="<?= $user->isLoggedin() ? '' : 'billing'; ?>-form" action="<?php echo $config->pages->billing."redir/"; ?>" method="post">
 	<input type="hidden" name="action" value="submit-billing-form">
 	<input type="hidden" name="page" id="page" value="<?php echo $config->pages->confirmation; ?>">
 	<?php include $config->paths->content.'billing/billing-logic.php'; ?>
