@@ -3,7 +3,6 @@
             <div class="row">
                 <div class="col-xs-12">
                     <a id="back-to-top" href="#" class="btn btn-default btn-lg back-to-top" role="button"><span class="glyphicon glyphicon-chevron-up"></span></a>
-
                 </div>
             </div>
         </div>
@@ -14,6 +13,7 @@
                     	<p> &copy; <?php echo date('Y'); ?> <?php echo $site->companytitle; ?> All Rights Reserved. </p>
                         Having trouble? Looking for an item and can't find it on our site?
                         Call us, we'd love to help! <a href="tel:<?php echo $site->phone800; ?>"><?php echo $site->phone800; ?></a><p></p>
+						<a href="<?= $homepage->newsletterurl; ?>" class="btn btn-white" target="_blank">Signup for Our Newsletter!</a>
                     </div>
                     <div class="col-sm-4">
                     	<h4>About <?php echo $site->displayname; ?></h4>

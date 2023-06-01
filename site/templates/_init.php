@@ -63,3 +63,4 @@
 	}
 
 	$site = $pages->get('/config/');
+	$homepage = $pages->get('/');
