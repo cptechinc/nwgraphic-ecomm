@@ -12,7 +12,7 @@
 			$LO = "DBNAME=".$config->dbName."\nPREBILL";
 			break;
 		case 'submit-billing-form':
-			//remove_errors(session_id());
+			remove_errors(session_id());
 			$billing = get_billing_information(session_id());
 
 			//update_billing_billto(session_id(), $bill_contact, $bill_name, $bill_address, $bill_address2, $bill_city, $bill_state, $bill_zip, $bill_country);
