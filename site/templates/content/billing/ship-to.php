@@ -56,7 +56,7 @@
           <optgroup label="USA" class="ship-USA">
               <?php $states = get_countrystates('USA', false); ?>
               <?php foreach ($states as $state) : ?>
-                  <?php if ($billing['bst'] == $state['abbreviation']) : ?>
+                  <?php if ($billing['sst'] == $state['abbreviation']) : ?>
                       <option value="<?php echo $state['abbreviation']; ?>" selected><?php echo $state['name']; ?></option>
                   <?php else : ?>
                       <option value="<?php echo $state['abbreviation']; ?>"><?php echo $state['name']; ?></option>
@@ -66,7 +66,7 @@
           <optgroup label="Canada" class="ship-CAN">
               <?php $provinces = get_countrystates('Canada', false); ?>
               <?php foreach ($provinces as $province) : ?>
-                  <?php if ($billing['bst'] == $province['abbreviation']) : ?>
+                  <?php if ($billing['sst'] == $province['abbreviation']) : ?>
                       <option value="<?php echo $province['abbreviation']; ?>" selected><?php echo $province['name']; ?></option>
                   <?php else : ?>
                       <option value="<?php echo $province['abbreviation']; ?>"><?php echo $province['name']; ?></option>
