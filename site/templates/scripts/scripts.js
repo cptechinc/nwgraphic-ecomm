@@ -43,34 +43,34 @@ $(document).ready(function () {
 		
 		
 	});
-	// scroll body to 0px on click
-	$('#back-to-top').click(function () {
-		$('#back-to-top').tooltip('hide');
-		$('body,html').animate({
-			scrollTop: 0
-		}, 800);
-		return false;
-	});
+        // scroll body to 0px on click
+        $('#back-to-top').click(function () {
+            $('#back-to-top').tooltip('hide');
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
 
 
 });
 
-	$(window).load(function() {
-		equaltabheights();
-	});
+$(window).load(function() {
+	equaltabheights();
+});
 
 
-	function wait(time, callback) {
-		var timeoutID = window.setTimeout(callback, time);
-	}
+function wait(time, callback) {
+	var timeoutID = window.setTimeout(callback, time);
+}
 
-	// Encode/decode htmlentities
-	function htmlencode(s){
-		return $("<div/>").text(s).html();
-	}
-	function htmldecode(s){
-		return $("<div/>").html(s).text();
-	}
+// Encode/decode htmlentities
+function htmlencode(s){
+	return $("<div/>").text(s).html();
+}
+function htmldecode(s){
+	return $("<div/>").html(s).text();
+}
 
 
 /* =============================================================
@@ -172,7 +172,7 @@ function setequalheight(container) {
 	$(container).each(function() {
 		if (forimage) {
 			if ($(this).actual( 'height' ) < height) {
-				height = $(this).actual( 'height' );
+				height = $(this).actual( 'height' ) > 0 ? $(this).actual( 'height' ) : height;
 			}
 		} else {
 			if ($(this).actual( 'height' ) > height) {
