@@ -79,7 +79,6 @@
 				<li><a href="<?php echo $config->pages->info; ?>">Info</a></li>
 				<li><a href="<?php echo $config->pages->sds; ?>">Safety Data Sheets</a></li>
 				<li><a href="<?php echo $config->pages->categories."?cat=USED"; ?>">Used Equipment</a></li>
-                <li><a href="<?php echo $config->pages->events; ?>">Events</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="cart-li">
