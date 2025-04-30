@@ -18,7 +18,7 @@
     "ext-gd": "*"
   },
   "autoload": {
-    "files": [ "wire/core/ProcessWire.php" ]
+    "files": [ "wire/core/ProcessWire.php", "site/modules/Pauldro/vendor/autoload.php" ]
   },
   "minimum-stability": "dev"
 }
